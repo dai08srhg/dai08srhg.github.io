@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>D. Fukushima</title><link>https://dai08srhg.github.io/portfolio/</link><description>Recent content on D. Fukushima</description><generator>Hugo</generator><language>ja</language><atom:link href="https://dai08srhg.github.io/portfolio/index.xml" rel="self" type="application/rss+xml"/><item><title>Slide</title><link>https://dai08srhg.github.io/portfolio/tech/slide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/slide/</guid><description>&lt;p>勉強会・カンファレンスなどでの登壇資料です。&lt;/p>
+&lt;div class="decks">
 &lt;a class="deck" href="https://speakerdeck.com/mot_techtalk/go-ekonomi-ainori-sabisu-niokeru-kudou-kaihatsu" rel="noopener noreferrer" target="_blank">
 	&lt;img class="deck__thumb" src="https://files.speakerdeck.com/presentations/6a732cc8c1a24ce88c8dea74e55082cf/slide_0.jpg" alt="" loading="lazy" width="160" height="90">
 	&lt;span class="deck__body">
@@ -21,7 +22,9 @@
 		&lt;span class="deck__title">RTBにおける機械学習の活用事例&lt;/span>
 		&lt;span class="deck__meta">&lt;span class="deck__provider">MicroAd Tech&lt;/span>&lt;/span>
 	&lt;/span>
-&lt;/a></description></item><item><title>Tech Blog</title><link>https://dai08srhg.github.io/portfolio/tech/tech_blog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/tech_blog/</guid><description>&lt;p>&lt;a class="post" href="https://developers.microad.co.jp/entry/2023/10/13/180000" rel="noopener noreferrer" target="_blank">
+&lt;/a>
+
+&lt;/div></description></item><item><title>Tech Blog</title><link>https://dai08srhg.github.io/portfolio/tech/tech_blog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/tech_blog/</guid><description>&lt;p>&lt;a class="post" href="https://developers.microad.co.jp/entry/2023/10/13/180000" rel="noopener noreferrer" target="_blank">
 	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/be0ebeb801298b900ed16386ac11f22bd451e036/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmicroad-developers%2F20231013%2F20231013180040.png" alt="" loading="lazy" width="256" height="144">
 	&lt;span class="post__body">
 		&lt;span class="post__meta">&lt;time class="post__date" datetime="2023-10-13">2023-10-13&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
