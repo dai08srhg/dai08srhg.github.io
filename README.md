@@ -100,7 +100,7 @@ description: "一覧に出る説明文"
 本文
 ```
 
-リンク埋め込み用のショートコードが 5 つある。`notion` 以外は外部の埋め込み iframe を使わず、
+リンク埋め込み用のショートコードが 6 つある。`notion` 以外は外部の埋め込み iframe を使わず、
 ビルド時にリンク先の OGP を読んでサイト側のカードとして描画する
 （ダークモードにも追従し、閲覧者のブラウザから外部へのリクエストも発生しない）。
 
@@ -115,8 +115,9 @@ description: "一覧に出る説明文"
 | ショートコード | 見た目 | 取得元 |
 |---|---|---|
 | `hatena` / `qiita` | 記事カード（日付・タイトル・抜粋・サムネイル） | リンク先の OGP |
-| `speakerdeck` | 小さいリンクパネル | SpeakerDeck の oEmbed API |
-| `linkcard` | 小さいリンクパネル | リンク先の OGP |
+| `speakerdeck` | 資料カード（サムネイルの下にタイトル） | SpeakerDeck の oEmbed API |
+| `linkcard` | 資料カード（サムネイルの下にタイトル） | リンク先の OGP |
+| `decks` | 上記の資料カードを横並びに敷き詰める枠 | （囲むだけ） |
 | `notion` | 見出しバー付きの埋め込み枠 | iframe（中身は Notion が描画） |
 
 - `hatena` / `qiita` は中身が同じ（`layouts/partials/post-card.html`）。名前が違うだけなので
@@ -124,6 +125,16 @@ description: "一覧に出る説明文"
   タイトル末尾の `- ブログ名` は、ブログ名を別行に出すため自動で落とす。
 - `speakerdeck` はサムネイルを oEmbed の応答に含まれる ID から組み立てるので、
   追加のリクエストは発生しない。
+- `speakerdeck` / `linkcard` を複数並べるときは `decks` で囲む。段幅に応じて
+  列数が変わる（本文幅で 3 列）。スマートフォンでは 1 列になり、カードの中身も
+  サムネイルの右にタイトルを置く横長の形に切り替わる。1 枚だけなら囲まなくてよい。
+
+```
+{{< decks >}}
+{{< speakerdeck link="https://speakerdeck.com/<user>/<slug>" >}}
+{{< linkcard    link="https://example.com/slides/..." >}}
+{{< /decks >}}
+```
 - 自動で拾えない場合は `title` / `date` / `image` / `site` で個別に上書きできる。
   `linkcard` で `title` と `site` の両方を指定した場合はリンク先へのアクセス自体が発生しない。
 
@@ -184,7 +195,7 @@ CSS 側は `:root` にライトの値を置き、`:root:not([data-theme="light"]
 ├── layouts/
 │   ├── _default/                   baseof / single / list
 │   ├── partials/                   head・ヘッダー・フッターなど
-│   ├── shortcodes/                 リンク埋め込み（hatena / qiita / speakerdeck / linkcard）
+│   ├── shortcodes/                 リンク埋め込み（hatena / qiita / speakerdeck / linkcard / decks / notion）
 │   ├── 404.html
 │   └── index.html                  トップページ（プロフィール）
 ├── static/img/                     画像

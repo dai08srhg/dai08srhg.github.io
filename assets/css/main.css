@@ -830,13 +830,27 @@ img {
   border-radius: 2px;
 }
 
+/* リンクパネルを横並びに敷き詰めるコンテナ
+   （layouts/shortcodes/decks.html）。段幅に応じて列数が変わる。 */
+.decks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 1.5em 0;
+}
+
+.decks .deck {
+  max-width: none;
+  margin: 0;
+}
+
 /* 外部資料へのリンクパネル
    （layouts/shortcodes/speakerdeck.html, linkcard.html で共用） */
 .deck {
   display: flex;
-  gap: 14px;
-  align-items: center;
-  max-width: 480px;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 260px;
   padding: 10px;
   margin: 1em 0;
   text-decoration: none;
@@ -855,9 +869,9 @@ img {
 }
 
 .deck__thumb {
-  flex: 0 0 auto;
-  width: 136px;
-  height: 77px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   background: var(--bg-sunken);
   border: 1px solid var(--border);
@@ -866,6 +880,7 @@ img {
 
 .deck__body {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: .35rem;
   min-width: 0;
@@ -883,6 +898,7 @@ img {
 }
 
 .deck__meta {
+  margin-top: auto;
   font-size: .72rem;
   color: var(--ink-3);
 }
@@ -902,10 +918,28 @@ img {
   margin: 1em 0;
 }
 
+/* スマートフォンでは 1 列にして、サムネイルの右に説明を置く
+   （縦に積むと 1 枚が画面の大半を占めてしまうため） */
 @media (max-width: 680px) {
+  .decks {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .deck {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    max-width: none;
+  }
+
   .deck__thumb {
-    width: 104px;
-    height: 59px;
+    flex: 0 0 auto;
+    width: 112px;
+  }
+
+  .deck__meta {
+    margin-top: 0;
   }
 }
 
@@ -1233,7 +1267,6 @@ img {
 
   .entry__logo {
     margin-top: .5rem;
-    object-position: left center;
   }
 
   .entry__details li {

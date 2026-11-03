@@ -1,0 +1,17 @@
+{{- /*
+  リンクパネルを横並びに敷き詰めるコンテナ。
+  中に speakerdeck / linkcard を並べて書く。
+
+    {{< decks >}}
+    {{< speakerdeck link="https://speakerdeck.com/<user>/<slug>" >}}
+    {{< linkcard    link="https://example.com/slides/..." >}}
+    {{< /decks >}}
+
+  列数は段幅に応じて変わる（本文幅で 3 列）。スマートフォンでは 1 列になり、
+  カードの中身もサムネイルの右にタイトルを置く横長の形に切り替わる。
+  カード 1 枚だけを置きたい場合は、このショートコードで囲まず
+  speakerdeck / linkcard を単体で書けばよい。
+*/ -}}
+<div class="decks">
+	{{- .Inner -}}
+</div>
