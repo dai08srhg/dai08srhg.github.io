@@ -1,39 +1,122 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tech on D.Fukushima</title>
-    <link>https://dai08srhg.github.io/portfolio/tech/</link>
-    <description>Recent content in Tech on D.Fukushima</description>
-    <generator>Hugo</generator>
-    <language>de</language>
-    <atom:link href="https://dai08srhg.github.io/portfolio/tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GitHub</title>
-      <link>https://dai08srhg.github.io/portfolio/tech/github/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://dai08srhg.github.io/portfolio/tech/github/</guid>
-      <description>&lt;div id=&#34;github-repos&#34; style=&#34;display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; margin-top: 10px;&#34;&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Qiita</title>
-      <link>https://dai08srhg.github.io/portfolio/tech/qiita/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://dai08srhg.github.io/portfolio/tech/qiita/</guid>
-      <description>&lt;p&gt;個人で運用しているものです.&#xA;&#xA;&#xA;&lt;iframe src=&#34;https://hatenablog-parts.com/embed?url=https%3a%2f%2fqiita.com%2fdai08srhg&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;160&#34;&#xA;    frameborder=&#34;0&#34;&#xA;    allowtransparency=&#34;true&#34;&#xA;    allow=&#34;encrypted-media&#34;&gt;&#xA;&lt;/iframe&gt;&#xA;最近の投稿⇩&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/dai08srhg/items/b726fecd2538459a1c2e&#34;&gt;BoTorchで制約条件がブラックボックス関数の場合(Objective, Constrainsの利用)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/dai08srhg/items/5a7a43a26abd75f88fdf&#34;&gt;BoTorch v0.12.0からデフォルトになったDim-scaled log-normal priorについて&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/dai08srhg/items/5d4ac3070bae836aef10&#34;&gt;No-U-Turn Sampler (NUTS) を理解したい&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&amp;hellip;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>Tech Blog</title>
-      <link>https://dai08srhg.github.io/portfolio/tech/tech_blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://dai08srhg.github.io/portfolio/tech/tech_blog/</guid>
-      <description>&lt;p&gt;会社技術ブログなどでの投稿です．&lt;br&gt;&#xA;最近の投稿⇩&#xA;&#xA;&#xA;&lt;iframe src=&#34;https://hatenablog-parts.com/embed?url=https%3a%2f%2fdevelopers.microad.co.jp%2fentry%2f2023%2f10%2f13%2f180000&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;200&#34;&#xA;    frameborder=&#34;0&#34;&#xA;    allowtransparency=&#34;true&#34;&#xA;    allow=&#34;encrypted-media&#34;&gt;&#xA;&lt;/iframe&gt;&#xA;&#xA;&#xA;&lt;iframe src=&#34;https://hatenablog-parts.com/embed?url=https%3a%2f%2fdevelopers.microad.co.jp%2fentry%2f2023%2f02%2f17%2f180000_1&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;200&#34;&#xA;    frameborder=&#34;0&#34;&#xA;    allowtransparency=&#34;true&#34;&#xA;    allow=&#34;encrypted-media&#34;&gt;&#xA;&lt;/iframe&gt;&#xA;&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>文献DB</title>
-      <link>https://dai08srhg.github.io/portfolio/tech/paper_db/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://dai08srhg.github.io/portfolio/tech/paper_db/</guid>
-      <description>&lt;p&gt;個人的にまとめているものです。&#xA;[&lt;a href=&#34;https://juicy-cookie-078.notion.site/DB-ff354caa71fb42f9b196d203c9dcf587?source=copy_link&#34;&gt;link&lt;/a&gt;]&lt;/p&gt;&#xA;&lt;div class=&#34;notion-embed&#34;&gt;&#xA;  &lt;iframe &#xA;    src=&#34;https://juicy-cookie-078.notion.site/ebd//ff354caa71fb42f9b196d203c9dcf587&#34; width=&#34;100%&#34; height=&#34;450&#34; frameborder=&#34;0&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech on D. Fukushima</title><link>https://dai08srhg.github.io/portfolio/tech/</link><description>Recent content in Tech on D. Fukushima</description><generator>Hugo</generator><language>ja</language><atom:link href="https://dai08srhg.github.io/portfolio/tech/index.xml" rel="self" type="application/rss+xml"/><item><title>Slide</title><link>https://dai08srhg.github.io/portfolio/tech/slide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/slide/</guid><description>&lt;p>勉強会・カンファレンスなどでの登壇資料です。&lt;/p>
+&lt;a class="deck" href="https://speakerdeck.com/mot_techtalk/go-ekonomi-ainori-sabisu-niokeru-kudou-kaihatsu" rel="noopener noreferrer" target="_blank">
+	&lt;img class="deck__thumb" src="https://files.speakerdeck.com/presentations/6a732cc8c1a24ce88c8dea74e55082cf/slide_0.jpg" alt="" loading="lazy" width="160" height="90">
+	&lt;span class="deck__body">
+		&lt;span class="deck__title">『GOエコノミー 』(相乗りサービス) におけるスペック駆動開発&lt;/span>
+		&lt;span class="deck__meta">
+			&lt;span class="deck__provider">Speaker Deck&lt;/span>&lt;span class="deck__author">GO Inc. dev&lt;/span>
+		&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="deck" href="https://sd-portal.microad.co.jp/slides/2024-05-29_jsai2024.html" rel="noopener noreferrer" target="_blank">
+	&lt;img class="deck__thumb" src="https://sd-portal.microad.co.jp/slides/2024-05-29_jsai2024/eyecatch.png" alt="" loading="lazy" width="160" height="90">
+	&lt;span class="deck__body">
+		&lt;span class="deck__title">3rd Party Cookie 規制後の広告配信技術&lt;/span>
+		&lt;span class="deck__meta">&lt;span class="deck__provider">MicroAd Tech&lt;/span>&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="deck" href="https://sd-portal.microad.co.jp/slides/2021-11-06_microad-study-ml.html" rel="noopener noreferrer" target="_blank">
+	&lt;img class="deck__thumb" src="https://sd-portal.microad.co.jp/slides/2021-11-06_microad-study-ml/eyecatch.png" alt="" loading="lazy" width="160" height="90">
+	&lt;span class="deck__body">
+		&lt;span class="deck__title">RTBにおける機械学習の活用事例&lt;/span>
+		&lt;span class="deck__meta">&lt;span class="deck__provider">MicroAd Tech&lt;/span>&lt;/span>
+	&lt;/span>
+&lt;/a></description></item><item><title>Tech Blog</title><link>https://dai08srhg.github.io/portfolio/tech/tech_blog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/tech_blog/</guid><description>&lt;p>&lt;a class="post" href="https://developers.microad.co.jp/entry/2023/10/13/180000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/be0ebeb801298b900ed16386ac11f22bd451e036/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmicroad-developers%2F20231013%2F20231013180040.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2023-10-13">2023-10-13&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">広告キャンペーンの日予算分配の自動化&lt;/span>
+		&lt;span class="post__excerpt">はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主にReal-Time-Bidding (RTB)における入札最適化の研究・開発などを担当しています. マイクロアドが提供する広告配信プラットフォーム(DSP)であるUNIVERSE Adsには予算管理の仕組みがいくつかあります. 今回はその中で配信制御のための自動予算分配について紹介します. はじめに UNIVERSE Adsにおける広告の構成 キャンペーン予算の最適分配 分配率最適化問題として定式化 予算分配後の配信制御 おわりに UNIVERSE Adsにおける広告の構成 UNIVERSE Adにおける広告は以…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2023/02/17/180000_1" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/6b5986c5bf58fc4c75536de44b05d63a006b63d0/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20230213%2F20230213172023.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2023-02-17">2023-02-17&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">Direct Reinforcement Learningによる金融取引の紹介&lt;/span>
+		&lt;span class="post__excerpt">はじめに 論文紹介 概要 関連研究 Direct Reinforcement Trading 実験の追試 終わりに はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主にReal-Time-Bidding (RTB)におけるClick Through Rate/Conversion Rate(CTR/CVR)予測や入札最適化の研究・開発を担当しています. アドテク企業というイメージが強いマイクロアドですが, 現在様々な事業を展開しており, 特に金融×データ分析領域に力を入れています. 最近ではオルタナティブデータ1に基づく金融事業を開始しました. rtbsquare…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2022/10/14/173000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/5079cfd460fa67ec33f7f0a58f8b961a9affdc23/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20221014%2F20221014154845.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2022-10-14">2022-10-14&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">数理最適化による入札関数選択&lt;/span>
+		&lt;span class="post__excerpt">はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主にReal-Time-Bidding (RTB)におけるClick Through Rate/Conversion Rate(CTR/CVR)予測や入札最適化の研究・開発を担当しています. マイクロアドでは, UNIVERSE Adsというプロダクトで予算消化制御と配信効果の最大化を目的として, 数理最適化による入札関数選択を導入しました. 今回は, 新たに導入した入札最適化について紹介します. はじめに 問題設定・定式化 線形計画問題の設計 予算の分配 期待消化金額の算出 試験導入結果 終わりに 問題設定・定式化…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2022/04/18/100000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/f05de2a6b137fbf65f0178ec15fb03887508a7cf/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20220412%2F20220412140004.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2022-04-18">2022-04-18&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">予算消化制御のための入札率のfeedback制御&lt;/span>
+		&lt;span class="post__excerpt">はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主にReal-Time-Bidding (RTB)におけるClick Through Rate/Conversion Rate(CTR/CVR)予測や入札最適化の研究・開発を担当しています. 現在マイクロアドでは, UNIVERSE Adsというプロダクトで予算配分制御のための入札率のfeedback制御を導入しています. 今回は, 入札率のfeedback制御について紹介します. はじめに RTBにおける予算管理 入札率のfeedback制御 目標消化金額の計算 導入結果 終わりに RTBにおける予算管理 RTBで…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2021/04/26/060000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/4714a057a4066d64e196cd846058bf7a43a7f62c/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20210402%2F20210402165251.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2021-04-26">2021-04-26&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">Focal Lossによる自信過剰な予測の抑制&lt;/span>
+		&lt;span class="post__excerpt">はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主にReal-Time-Bidding (RTB)におけるClick Through Rate/Conversion Rate(CTR/CVR)予測や入札最適化の研究・開発を担当しています. 今回はCTR/CVR予測の学習にFocal Loss [Tsung-Yi Lin et al., 2017]と呼ばれる損失関数を使ってみたのでその結果を紹介したいと思います. はじめに Focal Lossとは CTR/CVR予測にFocal Lossを用いることのモチベーション Focal Lossによるcalibration…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2021/01/25/063000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/6601b49c29638be91c4efb68d37bf4136372af7e/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20210119%2F20210119170631.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2021-01-25">2021-01-25&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">CTR予測における確率補正について&lt;/span>
+		&lt;span class="post__excerpt">はじめに こんにちは. マイクロアドで機械学習エンジニアをしている福島です. 主に広告のClick Through Rate (CTR)予測やReal-Time-Bidding (RTB)の入札最適化を担当しています. 今回はマイクロアドでのCTR予測における確率補正について紹介したいと思います. はじめに CTR予測とは 問題1 学習データが不均衡 問題2 機械学習モデルの出力を確率として扱うのは不適切な場合がある 問題3 学習データの信頼度が高くない CTR予測における確率補正 アンダーサンプリングによって生じたバイアスの除去 Isotonic Regressionによる確率補正 確率補正…&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;a class="post" href="https://developers.microad.co.jp/entry/2020/11/24/063000" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.image.st-hatena.com/image/scale/feb67e30c5da577b95d7581cf8f094afdcd5cd47/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ff%2Ffukushima-08%2F20201112%2F20201112113055.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;time class="post__date" datetime="2020-11-24">2020-11-24&lt;/time>&lt;span class="post__site">MicroAd Developers Blog&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">CTR予測にLightGBMを導入した話&lt;/span>
+		&lt;span class="post__excerpt">はじめに 初めまして, マイクロアドで機械学習エンジニアをしている福島です. 今年の4月に新卒でマイクロアドに入社し, 現在は UNIVERSE Ads というプロダクトでCTR(Click Through Rate)予測や入札アルゴリズムの開発研究をしています. 今回はCTR予測について共有させていただきたいと思います. CTR予測ではロジスティック回帰が広く使われてきており, マイクロアドでも長らく利用されてきました. 線形モデルであるため解釈性の高さや推論速度の速さなどのメリットも多く, 現在でも広く使われている手法です. しかし複雑なデータにはフィッティングしづらく, CTR予測のよう…&lt;/span>
+	&lt;/span>
+&lt;/a>&lt;/p></description></item><item><title>Qiita</title><link>https://dai08srhg.github.io/portfolio/tech/qiita/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/qiita/</guid><description>&lt;p>個人で運用しているものです.&lt;/p>
+&lt;a class="post" href="https://qiita.com/dai08srhg" rel="noopener noreferrer" target="_blank">
+	&lt;img class="post__thumb" src="https://cdn.qiita.com/assets/qiita-ogp-3b6fcfdd74755a85107071ffc3155898.png" alt="" loading="lazy" width="256" height="144">
+	&lt;span class="post__body">
+		&lt;span class="post__meta">&lt;span class="post__site">Qiita&lt;/span>
+		&lt;/span>
+		&lt;span class="post__title">@dai08srhg&amp;#39;s My Page&lt;/span>
+		&lt;span class="post__excerpt">猫好きなデータサイエンティスト🐈🐈&lt;/span>
+	&lt;/span>
+&lt;/a>
+&lt;p>最近の投稿⇩&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/dai08srhg/items/b726fecd2538459a1c2e">BoTorchで制約条件がブラックボックス関数の場合(Objective, Constrainsの利用)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/dai08srhg/items/5a7a43a26abd75f88fdf">BoTorch v0.12.0からデフォルトになったDim-scaled log-normal priorについて&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/dai08srhg/items/5d4ac3070bae836aef10">No-U-Turn Sampler (NUTS) を理解したい&lt;/a>&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul></description></item><item><title>文献DB</title><link>https://dai08srhg.github.io/portfolio/tech/paper_db/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/paper_db/</guid><description>&lt;p>個人的にまとめているものです。&lt;/p>
+&lt;figure class="embed embed--wide">
+	&lt;figcaption class="embed__bar">
+		&lt;span class="embed__label">
+			&lt;svg class="embed__icon" viewBox="0 0 16 16" aria-hidden="true">
+				&lt;rect x="1.5" y="2.5" width="13" height="11" rx="1.5">&lt;/rect>
+				&lt;path d="M1.5 6.5h13M6 6.5v7">&lt;/path>
+			&lt;/svg>
+			文献DB
+		&lt;/span>
+		&lt;a class="embed__open" href="https://juicy-cookie-078.notion.site/DB-ff354caa71fb42f9b196d203c9dcf587" rel="noopener noreferrer" target="_blank">
+			Notion で開く
+			&lt;svg class="embed__arrow" viewBox="0 0 12 12" aria-hidden="true">
+				&lt;path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4">&lt;/path>
+			&lt;/svg>
+		&lt;/a>
+	&lt;/figcaption>
+	&lt;div class="embed__frame" style="--embed-h: 560px; --embed-crop: 104px">
+		&lt;iframe src="https://juicy-cookie-078.notion.site/ebd/ff354caa71fb42f9b196d203c9dcf587" title="文献DB" loading="lazy">&lt;/iframe>
+	&lt;/div>
+&lt;/figure></description></item></channel></rss>
