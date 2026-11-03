@@ -1,12 +1,22 @@
-<!--
-Parameters:
-    src - (Required) link
--->
+{{- /*
+  はてなブログの記事をカードとして並べる。
 
-<iframe src="https://hatenablog-parts.com/embed?url={{ .Get "link" }}"
-    width="{{ default "100%" (.Get 2) }}"
-    height="{{ default "200" (.Get 3) }}"
-    frameborder="0"
-    allowtransparency="true"
-    allow="encrypted-media">
-</iframe>
+    {{< hatena link="https://developers.microad.co.jp/entry/2023/10/13/180000" >}}
+
+  タイトル・抜粋・サムネイル・ブログ名はビルド時にリンク先の OGP から取得する。
+  日付は記事 URL から取る。うまく拾えない場合は title / date で上書きできる。
+
+    {{< hatena link="..." title="記事名" date="2023-10-13" >}}
+*/ -}}
+{{- $url := or (.Get "link") (.Get 0) -}}
+{{- if not $url -}}
+	{{- errorf "hatena: link が指定されていません (%s)" .Position -}}
+{{- end -}}
+{{- partial "post-card.html" (dict
+	"url" $url
+	"label" "hatena"
+	"title" (.Get "title")
+	"date" (.Get "date")
+	"image" (.Get "image")
+	"site" (.Get "site")
+) -}}

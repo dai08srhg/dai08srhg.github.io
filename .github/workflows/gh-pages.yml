@@ -4,27 +4,34 @@ on:
   push:
     branches:
       - master # Set a branch to deploy
+  workflow_dispatch: # Actions タブから手動実行も可能
+
+# gh-pages ブランチへ push するために書き込み権限が必要
+permissions:
+  contents: write
+
+# 連続 push したときに古いデプロイが後から上書きしないようにする
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/checkout@v7
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.138.0"
-          # extended: true
+          # ローカル開発環境と揃えること（README 参照）
+          hugo-version: "0.143.1"
 
       - name: Build
-        run: hugo
+        run: hugo --gc --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public

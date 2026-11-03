@@ -1,0 +1,57 @@
+{{- /*
+  Notion の公開ページを枠付きで埋め込む。
+
+    {{< notion link="https://xxx.notion.site/DB-ff354caa..." title="文献DB" >}}
+
+  link は共有 URL でも埋め込み URL (/ebd/<id>) でもよい。URL から 32 桁の ID を
+  取り出して埋め込み URL を組み立て、見出しバーからは元の URL へリンクする。
+
+  Notion の中身はブラウザ側で描画されるため、タイトルはビルド時に取得できない。
+  title を渡さなかった場合は「Notion」とだけ表示する。
+
+    height - 埋め込みの高さ (px, 既定 560)
+    crop   - iframe 上端を切り落とす量 (px, 既定 104)
+             Notion は埋め込みでも自前のツールバー（「Notionを今すぐ使う」ボタン等）と
+             余白を出すため、既定ではその分を隠している。0 を渡すと切らない。
+    wide   - true で本文の段幅より広げ、ページ右端まで使う（表の列が切れる場合に）
+*/ -}}
+{{- $url := or (.Get "link") (.Get 0) -}}
+{{- if not $url -}}
+	{{- errorf "notion: link が指定されていません (%s)" .Position -}}
+{{- end -}}
+
+{{- $id := "" -}}
+{{- with findRE `[0-9a-f]{32}` $url 1 -}}
+	{{- $id = index . 0 -}}
+{{- end -}}
+{{- if not $id -}}
+	{{- errorf "notion: %s から Notion のページ ID を取り出せませんでした (%s)" $url .Position -}}
+{{- end -}}
+
+{{- $host := urls.Parse $url -}}
+{{- $embed := printf "%s://%s/ebd/%s" $host.Scheme $host.Host $id -}}
+{{- $title := .Get "title" | default "Notion" -}}
+{{- $height := .Get "height" | default "560" -}}
+{{- $crop := .Get "crop" | default "104" -}}
+{{- $wide := eq (.Get "wide") "true" -}}
+
+<figure class="embed{{ if $wide }} embed--wide{{ end }}">
+	<figcaption class="embed__bar">
+		<span class="embed__label">
+			<svg class="embed__icon" viewBox="0 0 16 16" aria-hidden="true">
+				<rect x="1.5" y="2.5" width="13" height="11" rx="1.5"></rect>
+				<path d="M1.5 6.5h13M6 6.5v7"></path>
+			</svg>
+			{{ $title }}
+		</span>
+		<a class="embed__open" href="{{ $url }}" rel="noopener noreferrer" target="_blank">
+			Notion で開く
+			<svg class="embed__arrow" viewBox="0 0 12 12" aria-hidden="true">
+				<path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4"></path>
+			</svg>
+		</a>
+	</figcaption>
+	<div class="embed__frame" style="--embed-h: {{ $height }}px; --embed-crop: {{ $crop }}px">
+		<iframe src="{{ $embed }}" title="{{ $title }}" loading="lazy"></iframe>
+	</div>
+</figure>
