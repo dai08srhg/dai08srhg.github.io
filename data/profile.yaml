@@ -1,0 +1,58 @@
+# プロフィールの基本情報。トップページのヘッダーと各セクションで参照される。
+name: 福島 大祐
+name_en: Fukushima Daisuke
+avatar: img/IMG_1612.PNG
+headline: ML Engineer / Data Scientist
+
+# 「基本情報」テーブルの行。不要な行は消せば表示されなくなる。
+affiliation: GO, inc. AI技術開発部
+position: ML Engineer
+degree: 修士 (工学)
+birth: 1995-07-13
+
+intro: |
+  猫好きなデータサイエンティストです。統計学、材料工学、機械学習全般に興味があります。
+
+  I'm a Machine Learning Engineer passionate about solving real-world problems through data and technology. 
+  Currently, I'm working at GO Inc., developing algorithms to improve mobility services. 🐈
+
+
+# 論文の著者名のうち、この名前に一致したものを太字にする
+self_names:
+  - Daisuke Fukushima
+  - 福島大祐
+
+# キーワード。label ごとのグループに分けて表示される。
+# グループを増やしたいときはこの形式で追記する。
+keywords:
+  - label: 領域
+    items:
+      - コンピュータビジョン
+      - MI
+      - アドテク
+      - 機械学習
+      - ベイズ最適化
+  - label: Skillset
+    items:
+      - Python
+      - Golang
+      - GCP
+      - AWS
+      - MySQL
+      - PostgreSQL
+      - Hadoop
+      - Redis
+
+links:
+  - name: GitHub
+    handle: dai08srhg
+    url: https://github.com/dai08srhg
+  # - name: Qiita
+  #   handle: dai08srhg
+  #   url: https://qiita.com/dai08srhg
+  - name: LinkedIn
+    handle: fukushima-ab
+    url: https://linkedin.com/in/fukushima-ab
+  - name: Facebook
+    handle: Daisuke Fukushima
+    url: https://facebook.com/100009883141297

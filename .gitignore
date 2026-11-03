@@ -1,0 +1,7 @@
+# Hugo のビルド成果物。デプロイは GitHub Actions が毎回ビルドして
+# gh-pages ブランチへ publish するため、リポジトリには含めない。
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+.DS_Store

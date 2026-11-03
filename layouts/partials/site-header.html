@@ -1,0 +1,21 @@
+<header class="site-header">
+	<div class="wrap site-header__inner">
+		<a class="site-header__brand" href="{{ "" | relLangURL }}">{{ site.Title }}</a>
+		<nav class="site-nav" aria-label="サイト">
+			<ul class="site-nav__list">
+				{{- $here := .RelPermalink }}
+				{{- $home := site.Home.RelPermalink }}
+				{{- range site.Menus.main }}
+				{{/* IsMenuCurrent compares against the raw menu URL, which has no
+				     baseURL prefix, so match on the resolved path instead. */}}
+				{{- $url := .URL | relURL }}
+				{{- $active := cond (eq $url $home) (eq $here $home) (hasPrefix $here $url) }}
+				<li class="site-nav__item">
+					<a class="site-nav__link{{ if $active }} is-active{{ end }}" href="{{ $url }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+				</li>
+				{{- end }}
+			</ul>
+		</nav>
+		{{ partial "theme_toggle.html" . }}
+	</div>
+</header>

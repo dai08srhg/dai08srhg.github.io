@@ -1,0 +1,238 @@
+{{ define "main" }}
+{{- $p := site.Data.profile -}}
+{{- $career := site.Data.career -}}
+{{- $education := site.Data.education -}}
+{{- $publications := site.Data.publications -}}
+{{- $awards := site.Data.awards -}}
+{{- $talks := site.Data.talks -}}
+{{- $tech := site.GetPage "/tech" -}}
+
+{{/* Section list drives both the sticky nav and the headings below, so the two
+     can never drift apart. A section is dropped when its data file is empty. */}}
+{{- $sections := slice -}}
+{{- if or $p.intro $p.affiliation }}{{ $sections = $sections | append (dict "id" "about" "title" "基本情報") }}{{ end -}}
+{{- if $p.keywords }}{{ $sections = $sections | append (dict "id" "keywords" "title" "キーワード") }}{{ end -}}
+{{- if $career }}{{ $sections = $sections | append (dict "id" "career" "title" "経歴") }}{{ end -}}
+{{- if $education }}{{ $sections = $sections | append (dict "id" "education" "title" "学歴") }}{{ end -}}
+{{- if $publications }}{{ $sections = $sections | append (dict "id" "publications" "title" "論文") }}{{ end -}}
+{{- if $awards }}{{ $sections = $sections | append (dict "id" "awards" "title" "受賞") }}{{ end -}}
+{{- if $talks }}{{ $sections = $sections | append (dict "id" "talks" "title" "講演・口頭発表等") }}{{ end -}}
+{{- $sections = $sections | append (dict "id" "repositories" "title" "リポジトリ") -}}
+{{- if and $tech $tech.Pages }}{{ $sections = $sections | append (dict "id" "writing" "title" "技術記事") }}{{ end -}}
+
+<div class="profile">
+	<div class="wrap profile__inner">
+		{{- with $p.avatar }}
+		<img class="profile__avatar" src="{{ . | relURL }}" alt="{{ $p.name }}" width="132" height="132">
+		{{- end }}
+		<div class="profile__id">
+			<h1 class="profile__name">
+				{{ $p.name }}
+				{{- with $p.name_en }}<span class="profile__name-en">{{ . }}</span>{{ end }}
+			</h1>
+			{{- with $p.headline }}<p class="profile__headline">{{ . }}</p>{{ end }}
+			{{- with $p.links }}
+			<ul class="profile__links">
+				{{- range . }}
+				<li>
+					<a class="profile__link" href="{{ .url }}" rel="me noopener noreferrer" target="_blank">
+						<span class="profile__link-name">{{ .name }}</span>
+						{{- with .handle }}<span class="profile__link-handle">{{ . }}</span>{{ end }}
+					</a>
+				</li>
+				{{- end }}
+			</ul>
+			{{- end }}
+		</div>
+	</div>
+</div>
+
+<div class="wrap layout">
+	<nav class="toc" aria-label="目次">
+		<p class="toc__title">目次</p>
+		<ul class="toc__list">
+			{{- range $sections }}
+			<li><a class="toc__link" href="#{{ .id }}">{{ .title }}</a></li>
+			{{- end }}
+		</ul>
+	</nav>
+
+	<main class="sections" id="main">
+
+		{{- if or $p.intro $p.affiliation }}
+		<section class="section" id="about">
+			<h2 class="section__title">基本情報</h2>
+			{{- with $p.intro }}<div class="section__lead">{{ . | markdownify }}</div>{{ end }}
+			<dl class="facts">
+				{{- with $p.affiliation }}<div class="facts__row"><dt>所属</dt><dd>{{ . }}</dd></div>{{ end }}
+				{{- with $p.position }}<div class="facts__row"><dt>職名</dt><dd>{{ . }}</dd></div>{{ end }}
+				{{- with $p.degree }}<div class="facts__row"><dt>学位</dt><dd>{{ . }}</dd></div>{{ end }}
+				{{- with $p.birth }}<div class="facts__row"><dt>生年月日</dt><dd>{{ . }}</dd></div>{{ end }}
+			</dl>
+		</section>
+		{{- end }}
+
+		{{- with $p.keywords }}
+		<section class="section" id="keywords">
+			<h2 class="section__title">キーワード</h2>
+			<div class="keywords">
+				{{- range . }}
+				<div class="keywords__group">
+					<p class="keywords__label">{{ .label }}</p>
+					<ul class="tags">
+						{{- range .items }}<li class="tags__item">{{ . }}</li>{{ end }}
+					</ul>
+				</div>
+				{{- end }}
+			</div>
+		</section>
+		{{- end }}
+
+		{{- with $career }}
+		<section class="section" id="career">
+			<h2 class="section__title">経歴</h2>
+			<ul class="entries">
+				{{- range . }}
+				<li class="entry">
+					<div class="entry__period">
+						<span class="job-duration" data-start="{{ .start }}" data-end="{{ .end }}">{{ .start }} ~ {{ .end }}</span>
+					</div>
+					<div class="entry__body">
+						<h3 class="entry__title">
+							{{- with .url }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">{{ end -}}
+							{{ .organization }}
+							{{- with .url }}</a>{{ end }}
+							{{- with .role }}<span class="entry__role">{{ . }}</span>{{ end }}
+						</h3>
+						{{- with .details }}
+						<ul class="entry__details">
+							{{- range . }}
+							<li><span class="entry__details-period">{{ .period }}</span>{{ .text }}</li>
+							{{- end }}
+						</ul>
+						{{- end }}
+					</div>
+					{{- with .logo }}
+					<img class="entry__logo" src="{{ . | relURL }}" alt="" loading="lazy">
+					{{- end }}
+				</li>
+				{{- end }}
+			</ul>
+		</section>
+		{{- end }}
+
+		{{- with $education }}
+		<section class="section" id="education">
+			<h2 class="section__title">学歴</h2>
+			<ul class="entries">
+				{{- range . }}
+				<li class="entry">
+					<div class="entry__period">
+						<span class="job-duration" data-start="{{ .start }}" data-end="{{ .end }}">{{ .start }} ~ {{ .end }}</span>
+					</div>
+					<div class="entry__body">
+						<h3 class="entry__title">{{ .organization }}</h3>
+						{{- with .note }}<p class="entry__note">{{ . }}</p>{{ end }}
+					</div>
+				</li>
+				{{- end }}
+			</ul>
+		</section>
+		{{- end }}
+
+		{{- with $publications }}
+		<section class="section" id="publications">
+			<h2 class="section__title">論文</h2>
+			<ol class="pubs">
+				{{- range . }}
+				{{- $pub := . }}
+				<li class="pub">
+					<p class="pub__authors">
+						{{- range $i, $a := .authors -}}
+							{{- if $i }}, {{ end -}}
+							{{- if in $p.self_names $a }}<b>{{ $a }}</b>{{ else }}{{ $a }}{{ end -}}
+						{{- end -}}
+					</p>
+					<p class="pub__title">
+						{{- with $pub.url }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">{{ $pub.title }}</a>
+						{{- else }}{{ $pub.title }}{{ end -}}
+					</p>
+					<p class="pub__meta">
+						{{- with .venue }}<span class="pub__venue">{{ . }}</span>{{ end }}
+						{{- with .year }}<span class="pub__year">{{ . }}</span>{{ end }}
+						{{- with .kind }}<span class="pub__kind">{{ . }}</span>{{ end }}
+					</p>
+				</li>
+				{{- end }}
+			</ol>
+		</section>
+		{{- end }}
+
+		{{- with $awards }}
+		<section class="section" id="awards">
+			<h2 class="section__title">受賞</h2>
+			<ul class="entries">
+				{{- range . }}
+				<li class="entry">
+					<div class="entry__period">{{ .year }}</div>
+					<div class="entry__body">
+						<h3 class="entry__title">
+							{{- with .url }}<a href="{{ . }}" rel="noopener noreferrer" target="_blank">{{ end -}}
+							{{ .title }}
+							{{- with .url }}</a>{{ end }}
+						</h3>
+						{{- with .organization }}<p class="entry__note">{{ . }}</p>{{ end }}
+					</div>
+				</li>
+				{{- end }}
+			</ul>
+		</section>
+		{{- end }}
+
+		{{- with $talks }}
+		<section class="section" id="talks">
+			<h2 class="section__title">講演・口頭発表等</h2>
+			<ul class="entries">
+				{{- range . }}
+				<li class="entry">
+					<div class="entry__period">{{ .date }}</div>
+					<div class="entry__body">
+						<h3 class="entry__title">{{ .title }}</h3>
+						{{- with .event }}<p class="entry__note">{{ . }}</p>{{ end }}
+					</div>
+				</li>
+				{{- end }}
+			</ul>
+		</section>
+		{{- end }}
+
+		<section class="section" id="repositories">
+			<h2 class="section__title">リポジトリ</h2>
+			<div class="repos" id="github-repos" data-user="{{ with index (where $p.links "name" "GitHub") 0 }}{{ .handle }}{{ end }}"></div>
+		</section>
+
+		{{- if and $tech $tech.Pages }}
+		<section class="section" id="writing">
+			<h2 class="section__title">技術記事</h2>
+			<ul class="entries">
+				{{- range $tech.Pages }}
+				<li class="entry">
+					<div class="entry__body">
+						<h3 class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+						{{- with .Description }}<p class="entry__note">{{ . }}</p>{{ end }}
+					</div>
+				</li>
+				{{- end }}
+			</ul>
+		</section>
+		{{- end }}
+
+	</main>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+{{ partial "script.html" "job-duration.js" }}
+{{ partial "script.html" "github-repos.js" }}
+{{ partial "script.html" "toc.js" }}
+{{ end }}

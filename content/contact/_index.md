@@ -1,6 +1,5 @@
 ---
 title: Contact
+description: ご連絡はこちらから
 ---
-
----
-FacebookかLinkedInからお願いします．
+FacebookかLinkedInからお願いします。

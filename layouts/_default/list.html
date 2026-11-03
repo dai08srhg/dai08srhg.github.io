@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="wrap page">
+	<main class="page__main" id="main">
+		<header class="page__header">
+			<h1 class="page__title">{{ .Title }}</h1>
+			{{- with .Description }}<p class="page__lead">{{ . }}</p>{{ end }}
+		</header>
+		{{- with .Content }}
+		<div class="prose">{{ . }}</div>
+		{{- end }}
+		{{- with .Pages }}
+		<ul class="entries entries--linked">
+			{{- range . }}
+			<li class="entry">
+				<div class="entry__body">
+					<h2 class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+					{{- with .Description }}<p class="entry__note">{{ . }}</p>{{ end }}
+				</div>
+			</li>
+			{{- end }}
+		</ul>
+		{{- end }}
+	</main>
+</div>
+{{ end }}

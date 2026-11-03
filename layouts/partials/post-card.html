@@ -1,0 +1,61 @@
+{{- /*
+  ブログ記事へのリンクカード。hatena / qiita ショートコードから使う。
+
+    {{ partial "post-card.html" (dict "url" $url "label" "hatena") }}
+
+  日付・タイトル・抜粋・サイト名・サムネイルはリンク先の OGP から取る。
+  title / date / image / site / description を渡せば個別に上書きできる。
+
+  日付は URL に含まれる /YYYY/MM/DD/ を優先する（はてなブログの記事 URL は
+  現地時間の投稿日を持つため、UTC の article:published_time より正確）。
+  取得できなかった場合は単なるリンクにフォールバックする。
+*/ -}}
+{{- $url := .url -}}
+{{- $label := .label | default "post" -}}
+{{- $og := partial "og.html" (dict "url" $url "label" $label) -}}
+
+{{- $title := or .title (index $og "title") -}}
+{{- $site := or .site (index $og "site") -}}
+{{- $image := or .image (index $og "image") -}}
+{{- $desc := or .description (index $og "description") -}}
+
+{{- /* 「記事名 - ブログ名」からブログ名を落とす（メタ行に別途出すため） */ -}}
+{{- with $site -}}
+	{{- range (slice " - " " | " " – " " — ") -}}
+		{{- $title = strings.TrimSuffix (printf "%s%s" . $site) $title -}}
+	{{- end -}}
+{{- end -}}
+
+{{- $date := .date -}}
+{{- if not $date -}}
+	{{- with findRE `/\d{4}/\d{2}/\d{2}/` $url 1 -}}
+		{{- $date = replaceRE `/` "-" (replaceRE `^/|/$` "" (index . 0)) -}}
+	{{- end -}}
+{{- end -}}
+{{- if not $date -}}
+	{{- with index $og "published" -}}
+		{{- $date = substr . 0 10 -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $title -}}
+<a class="post" href="{{ $url }}" rel="noopener noreferrer" target="_blank">
+	{{- with $image }}
+	<img class="post__thumb" src="{{ . }}" alt="" loading="lazy" width="256" height="144">
+	{{- end }}
+	<span class="post__body">
+		{{- if or $date $site }}
+		<span class="post__meta">
+			{{- with $date }}<time class="post__date" datetime="{{ . }}">{{ . }}</time>{{ end }}
+			{{- with $site }}<span class="post__site">{{ . }}</span>{{ end }}
+		</span>
+		{{- end }}
+		<span class="post__title">{{ $title }}</span>
+		{{- with $desc }}
+		<span class="post__excerpt">{{ . }}</span>
+		{{- end }}
+	</span>
+</a>
+{{- else -}}
+<a class="deck-fallback" href="{{ $url }}" rel="noopener noreferrer" target="_blank">{{ $url }}</a>
+{{- end -}}

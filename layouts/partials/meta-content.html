@@ -1,0 +1,21 @@
+{{- /*
+  HTML 文字列から meta タグの content を取り出す。
+
+    {{ partial "meta-content.html" (dict "html" $html "keys" (slice "og:title" "twitter:title")) }}
+
+  keys は優先順。最初に見つかったものを返し、どれも無ければ空文字を返す。
+  property= / name= のどちらでも拾い、属性の順序にも依存しない。
+*/ -}}
+{{- $html := .html -}}
+{{- $found := "" -}}
+{{- range .keys -}}
+	{{- if not $found -}}
+		{{- $re := printf `<meta[^>]+(?:property|name)=["']%s["'][^>]*>` . -}}
+		{{- with findRE $re $html 1 -}}
+			{{- with findRE `content=["'][^"']*["']` (index . 0) 1 -}}
+				{{- $found = replaceRE `^content=["']|["']$` "" (index . 0) | htmlUnescape | strings.TrimSpace -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- return $found -}}

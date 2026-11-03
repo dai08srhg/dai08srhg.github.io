@@ -1,0 +1,53 @@
+{{- /*
+  SpeakerDeck のスライドをリンクパネルとして並べる。
+
+    {{< speakerdeck link="https://speakerdeck.com/<user>/<slug>" >}}
+
+  スライドそのものはページ内で再生せず、サムネイル・タイトル・発表者だけを
+  出してリンク先へ送る。
+
+  タイトルと発表者はビルド時に SpeakerDeck の oEmbed API から取得する
+  （結果は Hugo がキャッシュする）。サムネイルは oEmbed が返すプレイヤー URL の
+  ID から組み立てられるので、追加のリクエストは発生しない。
+  オフラインや API 障害でも落ちないよう、取得に失敗した場合は
+  単なるリンクにフォールバックする。
+*/ -}}
+{{- $url := or (.Get "link") (.Get 0) -}}
+{{- if not $url -}}
+	{{- errorf "speakerdeck: link が指定されていません (%s)" .Position -}}
+{{- end -}}
+
+{{- $deck := false -}}
+{{- $api := printf "https://speakerdeck.com/oembed.json?url=%s" (urlquery $url) -}}
+{{- with try (resources.GetRemote $api) -}}
+	{{- with .Err -}}
+		{{- warnf "speakerdeck: %s を取得できませんでした: %s" $url . -}}
+	{{- else with .Value -}}
+		{{- $deck = unmarshal . -}}
+	{{- else -}}
+		{{- warnf "speakerdeck: %s から応答がありませんでした" $url -}}
+	{{- end -}}
+{{- end -}}
+
+{{- $id := "" -}}
+{{- with $deck -}}
+	{{- with findRE `/player/[0-9a-zA-Z]+` .html 1 -}}
+		{{- $id = replaceRE `^/player/` "" (index . 0) -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $id -}}
+	{{- $title := $deck.title | default $url -}}
+<a class="deck" href="{{ $url }}" rel="noopener noreferrer" target="_blank">
+	<img class="deck__thumb" src="https://files.speakerdeck.com/presentations/{{ $id }}/slide_0.jpg" alt="" loading="lazy" width="160" height="90">
+	<span class="deck__body">
+		<span class="deck__title">{{ $title }}</span>
+		<span class="deck__meta">
+			<span class="deck__provider">Speaker Deck</span>
+			{{- with $deck.author_name }}<span class="deck__author">{{ . }}</span>{{ end }}
+		</span>
+	</span>
+</a>
+{{- else -}}
+<a class="deck-fallback" href="{{ $url }}" rel="noopener noreferrer" target="_blank">{{ with $deck }}{{ .title }}{{ else }}{{ $url }}{{ end }}</a>
+{{- end -}}

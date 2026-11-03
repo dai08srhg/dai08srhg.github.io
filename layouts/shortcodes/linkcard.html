@@ -1,0 +1,46 @@
+{{- /*
+  任意のページへのリンクパネル。SpeakerDeck 以外の資料や記事に使う。
+
+    {{< linkcard link="https://sd-portal.microad.co.jp/slides/..." >}}
+
+  タイトル・サムネイル・サイト名は、ビルド時にリンク先の OGP
+  (og:title / og:image / og:site_name) から取得する（結果は Hugo がキャッシュする）。
+  OGP が無いページや取得に失敗した場合のために、title / image / site で
+  個別に上書きもできる。
+
+    {{< linkcard link="https://example.com/" title="タイトル" site="Example" >}}
+
+  title と site の両方を指定した場合はリンク先へのアクセス自体が発生しない。
+  リンク先に繋がらない場合はビルドを止めず、単なるリンクにフォールバックする。
+*/ -}}
+{{- $url := or (.Get "link") (.Get 0) -}}
+{{- if not $url -}}
+	{{- errorf "linkcard: link が指定されていません (%s)" .Position -}}
+{{- end -}}
+
+{{- $title := .Get "title" -}}
+{{- $image := .Get "image" -}}
+{{- $site := .Get "site" -}}
+
+{{- if not (and $title $site) -}}
+	{{- $og := partial "og.html" (dict "url" $url "label" "linkcard") -}}
+	{{- $title = or $title (index $og "title") -}}
+	{{- $image = or $image (index $og "image") -}}
+	{{- $site = or $site (index $og "site") -}}
+{{- end -}}
+
+{{- if $title -}}
+<a class="deck" href="{{ $url }}" rel="noopener noreferrer" target="_blank">
+	{{- with $image }}
+	<img class="deck__thumb" src="{{ . | absURL }}" alt="" loading="lazy" width="160" height="90">
+	{{- end }}
+	<span class="deck__body">
+		<span class="deck__title">{{ $title }}</span>
+		{{- with $site }}
+		<span class="deck__meta"><span class="deck__provider">{{ . }}</span></span>
+		{{- end }}
+	</span>
+</a>
+{{- else -}}
+<a class="deck-fallback" href="{{ $url }}" rel="noopener noreferrer" target="_blank">{{ $url }}</a>
+{{- end -}}

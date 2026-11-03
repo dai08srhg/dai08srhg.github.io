@@ -1,0 +1,40 @@
+{{- /*
+  リンク先の OGP をビルド時に読み、dict で返す。
+
+    {{ $og := partial "og.html" (dict "url" $url "label" "hatena") }}
+
+  返すキー: title / description / image / site / published
+  見つからなかったキーは空。取得に失敗した場合は空の dict を返し、
+  警告だけ出してビルドは止めない（label は警告メッセージの接頭辞）。
+
+  og: が無いページのために twitter: と <title> にもフォールバックする。
+  取得結果は Hugo がキャッシュする。
+*/ -}}
+{{- $url := .url -}}
+{{- $label := .label | default "og" -}}
+{{- $og := dict -}}
+
+{{- with try (resources.GetRemote $url) -}}
+	{{- with .Err -}}
+		{{- warnf "%s: %s を取得できませんでした: %s" $label $url . -}}
+	{{- else with .Value -}}
+		{{- $html := .Content -}}
+		{{- $title := partial "meta-content.html" (dict "html" $html "keys" (slice "og:title" "twitter:title")) -}}
+		{{- if not $title -}}
+			{{- with findRE `(?s)<title[^>]*>.*?</title>` $html 1 -}}
+				{{- $title = replaceRE `(?s)</?title[^>]*>` "" (index . 0) | htmlUnescape | strings.TrimSpace -}}
+			{{- end -}}
+		{{- end -}}
+		{{- $og = dict
+			"title" $title
+			"description" (partial "meta-content.html" (dict "html" $html "keys" (slice "og:description" "twitter:description" "description")))
+			"image" (partial "meta-content.html" (dict "html" $html "keys" (slice "og:image" "twitter:image")))
+			"site" (partial "meta-content.html" (dict "html" $html "keys" (slice "og:site_name" "twitter:site")))
+			"published" (partial "meta-content.html" (dict "html" $html "keys" (slice "article:published_time")))
+		-}}
+	{{- else -}}
+		{{- warnf "%s: %s から応答がありませんでした" $label $url -}}
+	{{- end -}}
+{{- end -}}
+
+{{- return $og -}}

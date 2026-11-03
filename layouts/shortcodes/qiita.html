@@ -1,12 +1,18 @@
-<!--
-Parameters:
-    src - (Required) link
--->
+{{- /*
+  Qiita の記事・ユーザーページをカードとして並べる。
+  見た目と仕組みは hatena ショートコードと同じ。
 
-<iframe src="https://hatenablog-parts.com/embed?url={{ .Get "link" }}"
-    width="{{ default "100%" (.Get 2) }}"
-    height="{{ default "160" (.Get 3) }}"
-    frameborder="0"
-    allowtransparency="true"
-    allow="encrypted-media">
-</iframe>
+    {{< qiita link="https://qiita.com/dai08srhg/items/..." >}}
+*/ -}}
+{{- $url := or (.Get "link") (.Get 0) -}}
+{{- if not $url -}}
+	{{- errorf "qiita: link が指定されていません (%s)" .Position -}}
+{{- end -}}
+{{- partial "post-card.html" (dict
+	"url" $url
+	"label" "qiita"
+	"title" (.Get "title")
+	"date" (.Get "date")
+	"image" (.Get "image")
+	"site" (.Get "site")
+) -}}

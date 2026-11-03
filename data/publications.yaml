@@ -1,0 +1,44 @@
+# 論文・出版物。新しい順に並べる。
+# authors のうち data/profile.yaml の self_names と一致したものが太字になる。
+# kind は表示されるラベル（査読付き論文 / 研究会 / プレプリント など）。
+- title: Differentiable Subset Selection for Cardinality-Constrained Bayesian Optimization
+  authors:
+    - Daisuke Fukushima
+    - Yuki Kurita
+  venue: TechRxiv preprint
+  year: 2025
+  kind: プレプリント
+  url: https://www.techrxiv.org/users/949789/articles/1319500-differentiable-subset-selection-for-cardinality-constrained-bayesian-optimization
+
+- title: Multi-scale Domain-adversarial Multiple-instance CNN for Cancer Subtype Classification with Unannotated Histopathological Images
+  authors:
+    - Noriaki Hashimoto
+    - Daisuke Fukushima
+    - Ryoichi Koga
+    - Yusuke Takagi
+    - Kaho Ko
+    - Kei Kohno
+    - Masato Nakaguro
+    - Shigeo Nakamura
+    - Hidekata Hontani
+    - Ichiro Takeuchi
+  venue: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+  year: 2020
+  kind: 査読付き論文
+  url: https://openaccess.thecvf.com/content_CVPR_2020/papers/Hashimoto_Multi-scale_Domain-adversarial_Multiple-instance_CNN_for_Cancer_Subtype_Classification_with_Unannotated_CVPR_2020_paper.pdf
+
+- title: ドメイン敵対的マルチインスタンス学習を用いた悪性リンパ腫のサブタイプ分類
+  authors:
+    - 福島大祐
+    - 古賀諒一
+    - 橋本典明
+    - 黄果葡
+    - 中黒匡人
+    - 高野桂
+    - 中村栄男
+    - 本谷秀堅
+    - 竹内一郎
+  venue: 研究報告コンピュータビジョンとイメージメディア (CVIM)
+  year: 2019
+  kind: 研究会
+  url: https://ken.ieice.org/ken/paper/20190904N1pi/
