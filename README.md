@@ -161,7 +161,14 @@ Notion 側の UI はテーマに追従しないため、ダークモードでも
 
 色・余白はすべて先頭の CSS カスタムプロパティで定義している。
 アクセントカラーを変えたい場合は `--accent` の 2 箇所（ライト / ダーク）を変更する。
-ダークモードは OS 設定に追従し、ヘッダー右上のボタンで手動切り替えもできる（`localStorage` に保存）。
+配色は**ダークが既定**。OS の設定には追従せず、ヘッダー右上のボタンで切り替えた場合だけ
+`localStorage` に保存して次回以降もそれを使う。
+
+CSS 側は `:root` にライトの値を置き、`:root:not([data-theme="light"])` でダークに上書きしている。
+つまり `data-theme="light"` が付いているときだけライトになる。
+既定をライトに戻したい場合は、この 2 ブロックの中身を入れ替えて
+`assets/js/theme-toggle.js` の `currentTheme()` と
+`layouts/partials/head.html` の `<meta name="color-scheme">` も合わせる。
 
 ---
 

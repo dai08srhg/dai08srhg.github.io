@@ -7,6 +7,8 @@
 /* --------------------------------------------------------------------------
    Tokens
    -------------------------------------------------------------------------- */
+ /* ライトの値。既定ではすぐ下のブロックに上書きされ、
+    data-theme="light" のときだけこちらが残る。 */
 :root {
   color-scheme: light;
 
@@ -41,34 +43,9 @@
   --mono: "JetBrains Mono", SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-
-    --bg: #0e0e10;
-    --bg-alt: #151518;
-    --bg-sunken: #1b1b20;
-    --border: #28282e;
-    --border-strong: #3d3d45;
-
-    --ink: #ececef;
-    --ink-2: #b2b2ba;
-    --ink-3: #83838d;
-
-    --accent: #6fb7bf;
-    --accent-soft: rgba(111, 183, 191, .12);
-
-    --card-bg: #17171b;
-    --card-shadow: 0 1px 2px rgba(0, 0, 0, .5);
-    --card-shadow-hover: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px -6px rgba(0, 0, 0, .6);
-
-    --bar-bg: #000000;
-    --bar-fg: #ececef;
-    --bar-fg-dim: #83838d;
-  }
-}
-
-:root[data-theme="dark"] {
+/* 既定はダーク。ライトはヘッダーのボタンで明示的に選んだときだけ
+   （data-theme="light" が付く）。OS の設定には追従しない。 */
+:root:not([data-theme="light"]) {
   color-scheme: dark;
 
   --bg: #0e0e10;
@@ -278,13 +255,8 @@ img {
 
 .theme-toggle__moon { display: none; }
 
-:root[data-theme="dark"] .theme-toggle__sun { display: none; }
-:root[data-theme="dark"] .theme-toggle__moon { display: block; }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle__sun { display: none; }
-  :root:not([data-theme="light"]) .theme-toggle__moon { display: block; }
-}
+:root:not([data-theme="light"]) .theme-toggle__sun { display: none; }
+:root:not([data-theme="light"]) .theme-toggle__moon { display: block; }
 
 /* --------------------------------------------------------------------------
    Profile band
@@ -582,18 +554,10 @@ img {
   object-position: center;
 }
 
-:root[data-theme="dark"] .entry__logo {
+:root:not([data-theme="light"]) .entry__logo {
   padding: 5px;
   background: #fff;
   border-radius: 3px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .entry__logo {
-    padding: 5px;
-    background: #fff;
-    border-radius: 3px;
-  }
 }
 
 /* Publications ----------------------------------------------------------- */

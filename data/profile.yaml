@@ -11,7 +11,7 @@ degree: 修士 (工学)
 birth: 1995-07-13
 
 intro: |
-  猫好きなデータサイエンティストです。統計学、材料工学、機械学習全般に興味があります。
+  猫好きなデータサイエンティストです。 統計学・機械学習全般に興味があります。
 
   I'm a Machine Learning Engineer passionate about solving real-world problems through data and technology. 
   Currently, I'm working at GO Inc., developing algorithms to improve mobility services. 🐈
@@ -32,7 +32,7 @@ keywords:
       - アドテク
       - 機械学習
       - ベイズ最適化
-  - label: Skillset
+  - label: Skill Set
     items:
       - Python
       - Golang

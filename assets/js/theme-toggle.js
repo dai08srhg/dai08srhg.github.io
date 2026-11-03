@@ -1,7 +1,8 @@
 /**
  * Light / dark toggle.
- * The chosen scheme is stored in localStorage and applied as data-theme on
- * <html>; with nothing stored the CSS falls back to prefers-color-scheme.
+ * Dark is the default; light is opt-in. The chosen scheme is stored in
+ * localStorage and applied as data-theme on <html>, so only data-theme="light"
+ * ever needs to be set. The OS setting is deliberately not consulted.
  */
 document.addEventListener('DOMContentLoaded', function () {
   var button = document.querySelector('.theme-toggle');
@@ -10,9 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var root = document.documentElement;
 
   function currentTheme() {
-    var stored = root.getAttribute('data-theme');
-    if (stored) return stored;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   }
 
   button.addEventListener('click', function () {
