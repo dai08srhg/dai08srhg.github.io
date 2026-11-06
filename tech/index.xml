@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech on D. Fukushima</title><link>https://dai08srhg.github.io/portfolio/tech/</link><description>Recent content in Tech on D. Fukushima</description><generator>Hugo</generator><language>ja</language><atom:link href="https://dai08srhg.github.io/portfolio/tech/index.xml" rel="self" type="application/rss+xml"/><item><title>Slide</title><link>https://dai08srhg.github.io/portfolio/tech/slide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dai08srhg.github.io/portfolio/tech/slide/</guid><description>&lt;p>勉強会・カンファレンスなどでの登壇資料です。&lt;/p>
 &lt;div class="decks">
+&lt;a class="deck" href="https://speakerdeck.com/dai08srhg/icl-gradient-descent" rel="noopener noreferrer" target="_blank">
+	&lt;img class="deck__thumb" src="https://files.speakerdeck.com/presentations/243f10bb8a58490fb34ac93096360d10/slide_0.jpg" alt="" loading="lazy" width="160" height="90">
+	&lt;span class="deck__body">
+		&lt;span class="deck__title">In-Context Learning再入門。ICLの勾配降下的解釈の研究動向を追ってみる。&lt;/span>
+		&lt;span class="deck__meta">
+			&lt;span class="deck__provider">Speaker Deck&lt;/span>&lt;span class="deck__author">Fukushima Daisuke&lt;/span>
+		&lt;/span>
+	&lt;/span>
+&lt;/a>
 &lt;a class="deck" href="https://speakerdeck.com/mot_techtalk/go-ekonomi-ainori-sabisu-niokeru-kudou-kaihatsu" rel="noopener noreferrer" target="_blank">
 	&lt;img class="deck__thumb" src="https://files.speakerdeck.com/presentations/6a732cc8c1a24ce88c8dea74e55082cf/slide_0.jpg" alt="" loading="lazy" width="160" height="90">
 	&lt;span class="deck__body">
