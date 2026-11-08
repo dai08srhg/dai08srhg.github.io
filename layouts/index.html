@@ -6,11 +6,12 @@
 {{- $awards := site.Data.awards -}}
 {{- $talks := site.Data.talks -}}
 {{- $tech := site.GetPage "/tech" -}}
+{{- $affiliations := partial "affiliations.html" $p.affiliation -}}
 
 {{/* Section list drives both the sticky nav and the headings below, so the two
      can never drift apart. A section is dropped when its data file is empty. */}}
 {{- $sections := slice -}}
-{{- if or $p.intro $p.affiliation }}{{ $sections = $sections | append (dict "id" "about" "title" "基本情報") }}{{ end -}}
+{{- if or $p.intro $affiliations }}{{ $sections = $sections | append (dict "id" "about" "title" "基本情報") }}{{ end -}}
 {{- if $p.keywords }}{{ $sections = $sections | append (dict "id" "keywords" "title" "キーワード") }}{{ end -}}
 {{- if $career }}{{ $sections = $sections | append (dict "id" "career" "title" "経歴") }}{{ end -}}
 {{- if $education }}{{ $sections = $sections | append (dict "id" "education" "title" "学歴") }}{{ end -}}
@@ -59,12 +60,21 @@
 
 	<main class="sections" id="main">
 
-		{{- if or $p.intro $p.affiliation }}
+		{{- if or $p.intro $affiliations }}
 		<section class="section" id="about">
 			<h2 class="section__title">基本情報</h2>
 			{{- with $p.intro }}<div class="section__lead">{{ . | markdownify }}</div>{{ end }}
 			<dl class="facts">
-				{{- with $p.affiliation }}<div class="facts__row"><dt>所属</dt><dd>{{ . }}</dd></div>{{ end }}
+				{{- with $affiliations }}
+				<div class="facts__row">
+					<dt>所属</dt>
+					<dd>
+						<ul class="facts__list">
+							{{- range . }}<li>{{ . }}</li>{{ end }}
+						</ul>
+					</dd>
+				</div>
+				{{- end }}
 				{{- with $p.position }}<div class="facts__row"><dt>職名</dt><dd>{{ . }}</dd></div>{{ end }}
 				{{- with $p.degree }}<div class="facts__row"><dt>学位</dt><dd>{{ . }}</dd></div>{{ end }}
 				{{- with $p.birth }}<div class="facts__row"><dt>生年月日</dt><dd>{{ . }}</dd></div>{{ end }}

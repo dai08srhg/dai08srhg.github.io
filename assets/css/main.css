@@ -464,6 +464,17 @@ img {
   font-size: .92rem;
 }
 
+/* 所属のように値が複数ある行。1 件のときは素のテキストと同じ見た目になる。 */
+.facts__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts__list li + li {
+  margin-top: .3rem;
+}
+
 /* Dated entries ---------------------------------------------------------- */
 .entries {
   margin: 0;

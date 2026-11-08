@@ -1,0 +1,21 @@
+{{- /*
+  profile.yaml の affiliation を、必ずスライスにして返す。
+
+  所属が 1 つなら文字列のまま、複数あるならリストで書けるようにするためのもの。
+  どちらで書かれていても呼び出し側は range できる。
+
+    affiliation: GO, inc. AI技術開発部
+
+    affiliation:
+      - GO, inc. AI技術開発部
+      - MicroAd, inc.
+
+  未設定なら空のスライスを返すので、そのまま with / if で分岐できる。
+*/ -}}
+{{- $v := . -}}
+{{- if not $v -}}
+	{{- $v = slice -}}
+{{- else if not (reflect.IsSlice $v) -}}
+	{{- $v = slice $v -}}
+{{- end -}}
+{{- return $v -}}

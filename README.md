@@ -85,6 +85,14 @@ hugo --gc --minify
   `assets/js/job-duration.js` によって自動計算され、日付の下の行に表示される。
 - `publications.yaml` の `authors:` のうち、`profile.yaml` の `self_names:` と一致した
   名前が自動で太字になる。
+- `profile.yaml` の `affiliation:` は 1 行でもリストでも書ける。複数書くと
+  「所属」欄に複数行で並ぶ（JSON-LD の `worksFor` も複数になる）。
+
+  ```yaml
+  affiliation:
+    - GO, inc. AI技術開発部
+    - MicroAd, inc.
+  ```
 - データが空のセクションは目次ごと自動的に非表示になる。
 
 ### 記事ページ → `content/`

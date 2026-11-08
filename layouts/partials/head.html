@@ -37,19 +37,21 @@
 	<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
 	{{- if .IsHome }}
+	{{- $worksFor := slice }}
+	{{- range partial "affiliations.html" $profile.affiliation }}{{ $worksFor = $worksFor | append (dict "@type" "Organization" "name" .) }}{{ end }}
 	{{- $sameAs := slice }}
 	{{- range $profile.links }}{{ $sameAs = $sameAs | append .url }}{{ end }}
-	<script type="application/ld+json">
-	{{ dict
+	{{- $ld := dict
 		"@context" "https://schema.org"
 		"@type" "Person"
 		"name" $profile.name
 		"alternateName" $profile.name_en
 		"jobTitle" $profile.position
-		"worksFor" (dict "@type" "Organization" "name" $profile.affiliation)
 		"url" site.BaseURL
-		"sameAs" $sameAs
-		| jsonify (dict "indent" "  ") | safeJS }}
+		"sameAs" $sameAs }}
+	{{- with $worksFor }}{{ $ld = merge $ld (dict "worksFor" .) }}{{ end }}
+	<script type="application/ld+json">
+	{{ $ld | jsonify (dict "indent" "  ") | safeJS }}
 	</script>
 	{{- end }}
 </head>
