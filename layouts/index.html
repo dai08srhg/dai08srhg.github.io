@@ -1,10 +1,10 @@
 {{ define "main" }}
-{{- $p := site.Data.profile -}}
-{{- $career := site.Data.career -}}
-{{- $education := site.Data.education -}}
-{{- $publications := site.Data.publications -}}
-{{- $awards := site.Data.awards -}}
-{{- $talks := site.Data.talks -}}
+{{- $p := hugo.Data.profile -}}
+{{- $career := hugo.Data.career -}}
+{{- $education := hugo.Data.education -}}
+{{- $publications := hugo.Data.publications -}}
+{{- $awards := hugo.Data.awards -}}
+{{- $talks := hugo.Data.talks -}}
 {{- $tech := site.GetPage "/tech" -}}
 {{- $affiliations := partial "affiliations.html" $p.affiliation -}}
 

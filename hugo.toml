@@ -1,6 +1,6 @@
 baseURL = 'https://dai08srhg.github.io/portfolio/'
 title = "D. Fukushima"
-languageCode = "ja"
+locale = "ja"
 defaultContentLanguage = "ja"
 enableRobotsTXT = true
 

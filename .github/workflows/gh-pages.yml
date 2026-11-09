@@ -25,7 +25,7 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           # ローカル開発環境と揃えること（README 参照）
-          hugo-version: "0.143.1"
+          hugo-version: "0.169.0"
 
       - name: Build
         run: hugo --gc --minify

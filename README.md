@@ -11,7 +11,7 @@ GitHub Pages でホストしているポートフォリオ。
 
 ## 必要なもの
 
-- Hugo **0.143.1**（CI と同じバージョン。`.github/workflows/gh-pages.yml` と揃えること）
+- Hugo **0.169.0**（CI と同じバージョン。`.github/workflows/gh-pages.yml` と揃えること）
 - extended 版である必要はない（Sass を使っていないため）
 
 ```bash
@@ -223,7 +223,7 @@ master に push
       ▼
 GitHub Actions (.github/workflows/gh-pages.yml)
   1. checkout
-  2. Hugo 0.143.1 をセットアップ
+  2. Hugo 0.169.0 をセットアップ
   3. hugo --gc --minify  →  public/
   4. public/ を gh-pages ブランチへ push
       │

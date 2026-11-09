@@ -1,4 +1,4 @@
-{{- $profile := site.Data.profile -}}
+{{- $profile := hugo.Data.profile -}}
 {{- $title := cond .IsHome site.Title (printf "%s - %s" .Title site.Title) -}}
 {{- $description := cond .IsHome site.Params.description (default site.Params.description .Description) -}}
 <head>
