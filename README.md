@@ -3,7 +3,7 @@
 GitHub Pages でホストしているポートフォリオ。
 静的サイトジェネレーター [Hugo](https://gohugo.io/) で作成。
 
-公開 URL: https://dai08srhg.github.io/portfolio/
+公開 URL: https://dai08srhg.github.io/
 
 テーマは使用しておらず、レイアウト・スタイルはすべて `layouts/` と `assets/css/` に自前で持っている。
 
@@ -29,7 +29,7 @@ hugo version
 hugo server
 ```
 
-http://localhost:1313/portfolio/ を開く。ファイルを保存すると自動でリロードされる。
+http://localhost:1313/ を開く。ファイルを保存すると自動でリロードされる。
 
 `hugo server` は `baseURL` を localhost に書き換えて配信するため、リンクや CSS のパスはそのまま動く。
 
@@ -43,11 +43,10 @@ http://localhost:1313/portfolio/ を開く。ファイルを保存すると自�
 
 ### 本番と同じ出力を確認する
 
-`baseURL` にサブパス（`/portfolio/`）が入っているため、`hugo` でビルドしたものをそのままローカルで開くとパスがずれる。
-確認したいときは `--baseURL /` を付けてビルドし、静的サーバーで配信する。
+`hugo` でビルドしたものを静的サーバーで配信する。
 
 ```bash
-hugo --gc --minify --baseURL / -d /tmp/portfolio-preview
+hugo --gc --minify -d /tmp/portfolio-preview
 python3 -m http.server 8000 -d /tmp/portfolio-preview
 ```
 
