@@ -1,7 +1,7 @@
 /**
  * Light / dark toggle.
- * Dark is the default; light is opt-in. The chosen scheme is stored in
- * localStorage and applied as data-theme on <html>, so only data-theme="light"
+ * Light is the default; dark is opt-in. The chosen scheme is stored in
+ * localStorage and applied as data-theme on <html>, so only data-theme="dark"
  * ever needs to be set. The OS setting is deliberately not consulted.
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var root = document.documentElement;
 
   function currentTheme() {
-    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
   button.addEventListener('click', function () {
